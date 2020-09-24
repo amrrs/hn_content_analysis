@@ -106,61 +106,6 @@ shiny::shinyApp(
             
           )
         ),
-      bs4TabItem(
-          tabName = "logistics",
-             
-      
-          fluidRow(
-    bs4SocialCard(
-      title = "Logistics Partner",
-      #subtitle = "example-01.05.2018",
-      src = "https://adminlte.io/themes/AdminLTE/dist/img/user4-128x128.jpg",
-      "Some text here!",
-      comments = tagList(
-        lapply(X = 1:10, FUN = function(i) {
-          cardComment(
-            src = "https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg",
-            title = paste("Comment", i),
-            date = "01.05.2018",
-            paste0("The ", i, "-th comment")
-          )
-        })
-      ),
-      footer = "Here"
-    ),
-    bs4Card(
-      title = "Discussions",
-      status = "primary",
-      userPost(
-        id = 1,
-        src = "https://adminlte.io/themes/AdminLTE/dist/img/user1-128x128.jpg",
-        author = "Jonathan Burke Jr.",
-        description = "Shared publicly - 7:30 PM today",
-        "Lorem ipsum represents a long-held tradition for designers, 
-       typographers and the like. Some people hate it and argue for 
-       its demise, but others ignore the hate as they create awesome 
-       tools to help create filler text for everyone from bacon 
-       lovers to Charlie Sheen fans.",
-        userPostTagItems(
-          userPostTagItem(bs4Badge("item 1", status = "warning")),
-          userPostTagItem(bs4Badge("item 2", status = "danger"))
-        )
-      ),
-      userPost(
-        id = 2,
-        src = "https://adminlte.io/themes/AdminLTE/dist/img/user6-128x128.jpg",
-        author = "Adam Jones",
-        description = "Shared publicly - 5 days ago",
-        userPostMedia(src = "https://adminlte.io/themes/AdminLTE/dist/img/photo2.png"),
-        userPostTagItems(
-          userPostTagItem(bs4Badge("item 1", status = "info")),
-          userPostTagItem(bs4Badge("item 2", status = "danger"))
-        )
-      )
-    )
-  )
-            
-        ),
         bs4TabItem(
           tabName = "content1",
           fluidRow(
@@ -316,49 +261,6 @@ shiny::shinyApp(
         hchart('column', hcaes(x = 'host', y = 'n')) %>% 
         hc_add_theme(hc_theme_google()) %>% 
         hc_title(text = "Most Domains (by top stories count)")
-      
-      
-    )
-    
-    output$lastuse <- renderHighchart(
-      entries() %>%
-        count(`When did you last use the phone?`) %>%
-        hchart('pie', 
-               hcaes(x = `When did you last use the phone?`, y = 'n')) %>% 
-        hc_add_theme(hc_theme_google()) %>% 
-        hc_title(text = "When did you last use the phone?")
-      
-      
-    )
-    
-    
-    
-    output$blrplace <- renderHighchart(
-      entries() %>%
-        count(`Where do you live in Bangalore? (Select one of these Bangalore Wards) If you don't live in Bangalore Select "Not-Bangalore" Last option`) %>%
-        hchart('column', hcaes(x = `Where do you live in Bangalore? (Select one of these Bangalore Wards) If you don't live in Bangalore Select "Not-Bangalore" Last option`, y = 'n')) %>% 
-        hc_add_theme(hc_theme_google()) %>% 
-        hc_title(text = "Where do you live in Bangalore?")
-      
-      
-    )
-    
-    output$wifi <- renderHighchart(
-      entries() %>%
-        count(`Does the phone's WIFI work well?`) %>%
-        hchart('column', hcaes(x = `Does the phone's WIFI work well?`, y = 'n')) %>% 
-        hc_add_theme(hc_theme_google()) %>% 
-        hc_title(text = "Does the phone's WIFI work well?")
-      
-      
-    )
-    
-    output$suitable <- renderHighchart(
-      entries() %>%
-        count(`Given that you understand this cause, Do you think your smartphone is suitable for this?`) %>%
-        hchart('column', hcaes(x = `Given that you understand this cause, Do you think your smartphone is suitable for this?`, y = 'n')) %>% 
-        hc_add_theme(hc_theme_google()) %>% 
-        hc_title(text = "Given that you understand this cause, Do you think your smartphone is suitable for this?")
       
       
     )
